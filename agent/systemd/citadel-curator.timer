@@ -1,0 +1,14 @@
+[Unit]
+Description=Citadel Resources — curator weekly timer
+Documentation=file:///home/flx/projects/citadel-resources/agent/README.md
+
+[Timer]
+# Every Monday at 08:00 local time. Change to suit.
+OnCalendar=Mon *-*-* 08:00:00
+# If the laptop was asleep/off at trigger time, run on next boot
+Persistent=true
+# Randomize by up to 15 min so we don't hit rate limits at exact the same moment every week
+RandomizedDelaySec=15min
+
+[Install]
+WantedBy=timers.target

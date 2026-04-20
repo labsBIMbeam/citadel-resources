@@ -1,0 +1,24 @@
+[Unit]
+Description=Citadel Resources — AI curator (one-shot)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+# Edit these paths for your system:
+User=flx
+WorkingDirectory=/home/flx/projects/citadel-resources
+ExecStart=/home/flx/projects/citadel-resources/agent/run.sh
+# Log to journald — view with: journalctl -u citadel-curator.service
+StandardOutput=journal
+StandardError=journal
+TimeoutStartSec=30m
+
+# Light hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/home/flx/projects/citadel-resources
+
+[Install]
+WantedBy=multi-user.target
