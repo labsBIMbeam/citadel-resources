@@ -1,0 +1,23 @@
+---
+interface Props {
+  id: string;
+  num: string;
+  title: string;
+  desc?: string;
+}
+
+const { id, num, title, desc } = Astro.props;
+---
+
+<section class="section" id={id}>
+  <div class="container">
+    <div class="section__head">
+      <h2 class="section__title">
+        <span class="num">{num}</span>
+        <span>{title}</span>
+      </h2>
+      {desc && <p class="section__desc">{desc}</p>}
+    </div>
+    <slot />
+  </div>
+</section>

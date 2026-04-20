@@ -1,0 +1,32 @@
+# Never commit the WordPress backup or any extracted secrets/malware-adjacent files
+old/
+assets/recovered/
+citadel-salvaged/
+
+# Astro / Node
+node_modules/
+dist/
+.astro/
+.output/
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+npm-debug.log*
+
+# Agent — never commit secrets or run logs
+agent/.env
+agent/logs/*
+!agent/logs/.gitkeep
+
+# Python / editors / OS
+__pycache__/
+.ruff_cache/
+.venv/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.db
+*.sqlite
+.env
+.env.local

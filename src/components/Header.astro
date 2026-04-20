@@ -1,0 +1,26 @@
+---
+const nav = [
+  { href: '#tribes', label: 'Tribes' },
+  { href: '#videos', label: 'Videos' },
+  { href: '#podcasts', label: 'Podcasts' },
+  { href: '#articles', label: 'Articles' },
+  { href: '#books', label: 'Books' },
+];
+---
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Citadel Resources home">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__name">
+        Citadel Resources<br />
+        <small>sovereignty, shelter, sats</small>
+      </span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-list">
+        {nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
+      </ul>
+    </nav>
+  </div>
+</header>

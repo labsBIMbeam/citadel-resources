@@ -1,0 +1,25 @@
+---
+import { CONTACT } from '../data/resources';
+---
+
+<section class="contact" id="contact">
+  <div class="container">
+    <p class="label">// Contribute</p>
+    <h2>Suggest a resource.</h2>
+    <p>Missing a voice, a tribe, a book? The index grows with the village.</p>
+    <div class="contact__links">
+      <a class="btn btn--primary" href={`mailto:${CONTACT.email}`}>Mail {CONTACT.email}</a>
+      <a class="btn btn--ghost" href={CONTACT.telegram} target="_blank" rel="noopener">Telegram</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>
+      Citadel Resources · FOSS · No trackers ·
+      <a href={CONTACT.sister.url} target="_blank" rel="noopener">{CONTACT.sister.name}</a> ·
+      <a href={CONTACT.sister2.url} target="_blank" rel="noopener">{CONTACT.sister2.name}</a>
+    </p>
+  </div>
+</footer>

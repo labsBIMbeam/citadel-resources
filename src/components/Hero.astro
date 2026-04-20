@@ -1,0 +1,48 @@
+---
+import { HERO_QUOTE } from '../data/resources';
+---
+
+<section class="hero">
+  <div class="container">
+    <figure class="hero__meme">
+      <img
+        src="/images/citadel.jpg"
+        alt="The Citadel v1.0 — Bitcoin stack hierarchy as a Tower of Babel meme, from Whale Stack down to The Nocoiner."
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <figcaption>
+        <span class="mono">// The Citadel v1.0 — Year 2028 of the Second Age</span>
+      </figcaption>
+    </figure>
+
+    <div class="hero__grid">
+      <div>
+        <p class="mono hero__tag">// Sovereign builder's index</p>
+        <h1>
+          Build your <span class="accent">citadel</span>.<br />
+          Before you need it.
+        </h1>
+        <p class="hero__lede">
+          A curated index of tribes, voices, and blueprints for the people
+          quietly building parallel systems — off-grid, on-chain, and unapologetic.
+        </p>
+        <div class="hero__cta">
+          <a href="#tribes" class="btn btn--primary">Explore the map →</a>
+          <a href="https://t.me/citadelresources" class="btn btn--ghost" target="_blank" rel="noopener">
+            Join on Telegram
+          </a>
+        </div>
+      </div>
+
+      <aside class="quote">
+        {HERO_QUOTE.body.map((p) => <p>{p}</p>)}
+        <div class="quote__attr">
+          <span><strong>{HERO_QUOTE.attribution}</strong></span>
+          <a href={HERO_QUOTE.sourceUrl} target="_blank" rel="noopener">Read →</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

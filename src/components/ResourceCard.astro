@@ -1,0 +1,29 @@
+---
+interface Props {
+  name: string;
+  url: string;
+  blurb: string;
+  image?: string;
+  kind?: string;
+}
+
+const { name, url, blurb, image, kind = 'Tribe' } = Astro.props;
+const host = new URL(url).hostname.replace(/^www\./, '');
+---
+
+<a class="card" href={url} target="_blank" rel="noopener noreferrer">
+  <div class="card__head">
+    <div class="card__icon">
+      {image
+        ? <img src={image} alt="" loading="lazy" decoding="async" />
+        : <span class="mono">{name.slice(0, 2).toUpperCase()}</span>
+      }
+    </div>
+    <h3 class="card__title">{name}</h3>
+  </div>
+  <p class="card__blurb">{blurb}</p>
+  <div class="card__foot">
+    <span>{kind} · {host}</span>
+    <span class="arrow">→</span>
+  </div>
+</a>

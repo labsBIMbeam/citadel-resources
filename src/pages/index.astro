@@ -1,0 +1,129 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import ResourceCard from '../components/ResourceCard.astro';
+import VideoCard from '../components/VideoCard.astro';
+import PodcastCard from '../components/PodcastCard.astro';
+import Footer from '../components/Footer.astro';
+import {
+  tribes,
+  videos,
+  podcasts,
+  articles,
+  books,
+  PODCAST_CATEGORIES,
+} from '../data/resources';
+
+type PodcastCat = keyof typeof PODCAST_CATEGORIES;
+const podcastsByCat = (Object.keys(PODCAST_CATEGORIES) as PodcastCat[]).map((cat) => ({
+  cat,
+  label: PODCAST_CATEGORIES[cat],
+  items: podcasts.filter((p) => p.category === cat),
+}));
+---
+
+<Base
+  title="Citadel Resources — sovereignty, shelter, sats"
+  description="A curated index of tribes, voices, and blueprints for building sovereign citadels. Bitcoin, regenerative farming, free cities, off-grid living."
+>
+  <Header />
+  <main>
+    <Hero />
+
+    <Section
+      id="tribes"
+      num="01 /"
+      title="Tribes"
+      desc="Communities building parallel systems — land, food, shelter, and sound money."
+    >
+      <div class="grid">
+        {tribes.map((t) => (
+          <ResourceCard
+            name={t.name}
+            url={t.url}
+            blurb={t.blurb}
+            image={t.image}
+            kind="Tribe"
+          />
+        ))}
+      </div>
+    </Section>
+
+    <Section
+      id="videos"
+      num="02 /"
+      title="Videos"
+      desc="Short films and talks worth the watch."
+    >
+      <div class="grid grid--videos">
+        {videos.map((v) => (
+          <VideoCard title={v.title} author={v.author} youtubeId={v.youtubeId} />
+        ))}
+      </div>
+    </Section>
+
+    <Section
+      id="podcasts"
+      num="03 /"
+      title="Podcasts"
+      desc="Conversations from the edge — sovereignty, farming, society, resets."
+    >
+      {podcastsByCat.map((g) => g.items.length > 0 && (
+        <div class="pod-group">
+          <p class="pod-group__label">{g.label}</p>
+          <div class="pod-grid">
+            {g.items.map((p) => (
+              <PodcastCard
+                title={p.title}
+                host={p.host}
+                spotifyKind={p.spotify.kind}
+                spotifyId={p.spotify.id}
+              />
+            ))}
+          </div>
+        </div>
+      ))}
+    </Section>
+
+    <Section
+      id="articles"
+      num="04 /"
+      title="Articles"
+      desc="Long reads. No newsletter, no paywall."
+    >
+      <ul class="article-list">
+        {articles.map((a) => (
+          <li>
+            <a href={a.url} target="_blank" rel="noopener noreferrer">
+              <span class="t">{a.title}</span>
+              <span class="s">{a.source} →</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </Section>
+
+    <Section
+      id="books"
+      num="05 /"
+      title="Books"
+      desc="Shelf essentials for the sovereign builder."
+    >
+      <div class="book-grid">
+        {books.map((b) => (
+          <a class="book" href={b.url} target="_blank" rel="noopener noreferrer">
+            {b.cover && <img class="book__cover" src={b.cover} alt="" loading="lazy" />}
+            <div>
+              <p class="book__title">{b.title}</p>
+              <p class="book__author">{b.author}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </Section>
+
+    <Footer />
+  </main>
+</Base>
