@@ -72,6 +72,15 @@ The build output is plain static HTML/CSS/JS in `dist/`. Deploy anywhere:
 The old WordPress site content was recovered from `old/citadel-resources.com.zip` (filesystem only, no DB)
 and Wayback Machine snapshots. Full inventory in `RECOVERED_CONTENT.md`.
 
+## The street starts here
+
+`join.citadel-resources.com` hosts the **Book of the Street** — the character lore viewer for
+the 30 members of the 600 Billion council. Sibling projects:
+
+- [PalaceOfCulture](https://github.com/600-000-000-000/PalaceOfCulture) — the 3D world those
+  characters (and Bitcoin timelocks) live in.
+- [600.wtf](https://600.wtf) — the collective's live site.
+
 ## License
 
 MIT — see `LICENSE`.
