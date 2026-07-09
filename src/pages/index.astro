@@ -534,6 +534,43 @@ const panelLabels = {
       });
     };
 
+    const initFlourishes = () => {
+      document.documentElement.classList.add('has-flourishes');
+
+      document.querySelectorAll<HTMLImageElement>('.chapter-image img').forEach((img) => {
+        if (img.complete) {
+          img.classList.add('is-loaded');
+          return;
+        }
+        const markLoaded = () => img.classList.add('is-loaded');
+        img.addEventListener('load', markLoaded, { once: true });
+        img.addEventListener('error', markLoaded, { once: true });
+      });
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const revealTargets = document.querySelectorAll<HTMLElement>(
+        '.section__head, .research-card, .hardware-card, .craft-source, .guild-hall, .nostr-columns > *, .contact-grid > *'
+      );
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              observer.unobserve(entry.target);
+              entry.target.classList.add('is-revealed');
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      revealTargets.forEach((el, index) => {
+        el.classList.add('reveal');
+        el.style.setProperty('--reveal-delay', `${(index % 4) * 70}ms`);
+        observer.observe(el);
+      });
+    };
+
     initReader();
+    initFlourishes();
   </script>
 </Base>
