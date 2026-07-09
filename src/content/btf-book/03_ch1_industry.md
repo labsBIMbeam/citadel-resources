@@ -1,5 +1,5 @@
 :::vignette
-!IMG:plate_03.png|
+!IMG:plate_03.webp|
 
 The Builder spent Tuesday morning demolishing Monday's work.
 
@@ -46,7 +46,7 @@ And error is not merely expensive. The Builder's demolished duct — revision C 
 
 The severity of that data problem has an official price tag, and its age is itself the indictment. In 2004, the U.S. National Institute of Standards and Technology (NIST) published study GCR 04-867 on the cost of inadequate interoperability in the U.S. capital facilities industry: **15.8 billion dollars per year** (in 2002 dollars), of which about two-thirds fell not on designers or contractors but on **owners and operators**, mostly during operations and maintenance — the phase that inherits whatever data survives the handover, which is to say, not much. No equally rigorous study has replicated the estimate since; the industry's information stack has been re-platformed twice in the interim, and the honest statement is that we are still spending an unmeasured multiple of that figure. (A 2021 Autodesk-commissioned FMI report put the global cost of "bad data" at 1.85 trillion dollars for 2020 and claimed 96 percent of captured project data goes unused — directionally useful numbers that should be read for what they are: a vendor's survey.)
 
-!IMG:ch1_data_lifecycle.png|Data that dies at every handover — the interoperability gap.
+!IMG:ch1_data_lifecycle.webp|Data that dies at every handover — the interoperability gap.
 
 The pattern beneath both numbers is the same. Project information is produced in silos (architect's model, engineer's model, fabricator's model, contractor's schedule, owner's spreadsheet), exchanged as lossy exports, flattened into PDFs for legal comfort, and largely discarded at each phase boundary. The building lives for fifty years; its data rarely survives five.
 
@@ -68,7 +68,7 @@ So the models exist. The promise — a shared, trustworthy, living dataset from 
 
 Construction's payment terms would be considered a crisis in any other industry; here they are custom. The most-cited recent figures come from Rabbet's annual U.S. surveys — a payments-software vendor, so label applied — and they are stark: slow payments cost the U.S. construction industry an estimated **280 billion dollars in 2024** and **299 billion in 2025**, a hidden tax the 2025 report puts at 14 percent of construction costs; **82 percent of subcontractors** reported waiting more than 30 days past due, up from 49 percent two years earlier. Independent surveys agree on the shape: typical end-to-end payment cycles average **57 days** from work performed to cash received, with late-payment cases stretching toward 90, and subcontractors routinely front material and labor costs in the interim — effectively acting as unsecured, uncompensated lenders to the projects they build. Contractors respond rationally by pricing the wait into bids (survey estimates put the markup near 8 percent), so the owner pays for the dysfunction whether or not anyone names it.
 
-!IMG:ch1_slow_money.png|The payment chain that bleeds the trades.
+!IMG:ch1_slow_money.webp|The payment chain that bleeds the trades.
 
 On top of the wait sits **retention**: 5 to 10 percent of every invoice held back, cascading down the subcontract chain, released months or years later, and — for a small firm — often the difference between solvency and not. Regulators have begun to notice: California capped private-project retention at 5 percent from January 2026; the EU has a proposed regulation to tighten B2B payment terms to 30 days working through its legislature; the UK launched a Fair Payment Code in December 2024. Notice the shape of these remedies: laws begging companies to send money faster, on rails where money simply does not move fast, across a chain of intermediaries who each earn float by holding it. And for the industry's large migrant workforce, one more toll waits at the end: sending wages home costs a **global average of 6.36 percent** per remittance (World Bank, Q3 2025) against a UN target of 3 — the most regressive fee schedule in finance, levied on the people who pour the concrete.
 

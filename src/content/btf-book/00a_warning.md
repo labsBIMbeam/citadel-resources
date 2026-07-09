@@ -8,6 +8,6 @@ This book contains no investment advice, no price targets, and no promises. It c
 
 Proceed as you would onto any site: at your own risk, with your eyes open, and with your own keys.
 
-!IMG:warning_bone.png|
+!IMG:warning_bone.webp|
 
 :::

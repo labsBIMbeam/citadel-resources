@@ -1,5 +1,5 @@
 :::vignette
-!IMG:plate_11.png|
+!IMG:plate_11.webp|
 
 The contact disappeared on a Tuesday.
 
@@ -50,6 +50,6 @@ The heaviest line item has no software patch. Chapter 1's dysfunctions are, for 
 
 Punch lists end with sequence. For a firm: start at Layer 1 (signed transmittals between two willing partners — cost: an afternoon), add content-addressed deliverables on the next project, pilot one milestone escrow with a client who has been burned before (they will not need persuading), and only then touch payroll, treasury, or vending machines. For a guild or professional body: stand up the neutral relay and the attestation registry — the infrastructure of trust is your historical mandate wearing new clothes. For the individual reader: twelve words, an afternoon, one signed site diary — the pilot project is you. What must not be done: big-bang platform replacement (the architecture's entire advantage is that it never requires one), custody improvisation (use the stack), or evangelism ahead of demonstration (the tired defenders outnumber you; show, don't tell).
 
-!IMG:ch9_sequence.png|The adoption sequence — what to deploy first.
+!IMG:ch9_sequence.webp|The adoption sequence — what to deploy first.
 
 The list was named, line by line, and none of the lines said *impossible*. They said *discipline, sequence, patience* — which are, it will not have escaped the reader, the industry's own oldest virtues, the ones the cathedral crews had before the tools arrived to deserve them again. What remains is to look up from the punch list, once, and describe the building this has all been for.

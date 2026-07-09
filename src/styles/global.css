@@ -2078,7 +2078,7 @@ body.has-reader-fullscreen .reader-hero {
 .guild-stage {
   background:
     linear-gradient(rgba(23, 19, 14, 0.8), rgba(23, 19, 14, 0.8)),
-    url("/images/cypherspace/palace_book.png") right top / min(520px, 46vw) no-repeat,
+    url("/images/cypherspace/palace_book.webp") right top / min(520px, 46vw) no-repeat,
     var(--surface);
 }
 
@@ -2206,13 +2206,13 @@ body.has-reader-fullscreen .reader-hero {
 .craft-library {
   background:
     linear-gradient(rgba(23, 19, 14, 0.78), rgba(23, 19, 14, 0.88)),
-    url("/images/cypherspace/reading_workshop.png") center / cover;
+    url("/images/cypherspace/reading_workshop.webp") center / cover;
 }
 
 .nostr-panel {
   background:
     linear-gradient(rgba(30, 25, 19, 0.9), rgba(30, 25, 19, 0.96)),
-    url("/images/cypherspace/nostrnet.png") center / cover;
+    url("/images/cypherspace/nostrnet.webp") center / cover;
 }
 
 .nostr-config,
@@ -2335,3 +2335,4 @@ body.has-reader-fullscreen .reader-hero {
     display: none;
   }
 }
+

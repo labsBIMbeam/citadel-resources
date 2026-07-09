@@ -17,7 +17,7 @@ This book was written by a building-services and BIM engineer, in the evenings, 
 *FLX — Tirol, July 2026*
 *flx@600.wtf · www.600.wtf*
 
-!IMG:reading_workshop.png|
+!IMG:reading_workshop.webp|
 
 :::saga
 
@@ -41,7 +41,7 @@ This book tried to carry both — the instruments and the story underneath them.
 
 :::
 
-!IMG:sources_divider.png|
+!IMG:sources_divider.webp|
 
 # Selected Sources by Chapter
 

@@ -3,7 +3,7 @@
 > "It is inevitable that people will see this kind of new paradigm as the better paradigm than the walled garden we are currently having. They won't figure out the algorithm that makes it right — we will have to do something else. We will have to build back better with Bitcoin."
 > — DerGigi
 
-!IMG:prefave.png|Communities build what their money lets them remember.
+!IMG:prefave.webp|Communities build what their money lets them remember.
 
 There was a time when the concept of money was grounded in the tangible value of gold, and communities around the world engaged in building projects that were monumental not just in scale but in collaborative spirit. Under sound money, the construction of castles, monasteries, and cathedrals was undertaken across generations. A master mason could begin a nave knowing that the endowment funding it would still buy stone in his grandson's lifetime. These projects were not only architectural feats; they were evidence of low time preference — of societies able to save, to plan, and to trust one another across decades, because the unit they saved in held its weight.
 
@@ -13,13 +13,13 @@ The construction of the Vienna Ringstraße tells a subtler story, and this book'
 
 And then the era supplies its own control experiment. The Gründerzeit boom that financed the Ring's palaces ran on expanding credit, and in May 1873 — the year Vienna opened its World's Fair — the exchange crashed and took the speculators, the paper fortunes, and half the building societies with it. Note precisely what evaporated and what remained. The credit was gone. The buildings stood. They stand today, housing the same institutions, because a boulevard of dressed stone and trained hands is capital, and a leveraged claim on next year's plot price never was. The Ringstraße is not this book's proof that the nineteenth century had sound money throughout — it did not, and paid for it on schedule. It is proof of something more useful: that when the printing stops, the difference between credit and capital is suddenly, brutally legible — and it is measured in what is still standing. Builders produce the part that remains. This book is about giving them money and records with the same property.
 
-!IMG:preface_ringstrasse.png|The ring that refused the straight line — Wien, 1857.
+!IMG:preface_ringstrasse.webp|The ring that refused the straight line — Wien, 1857.
 
 Then the world changed. The Austro-Hungarian Empire did not survive the strain of the First World War; the treaties of Saint-Germain and Trianon formalized its dissolution. Out of the wreckage of the old order, a new monetary one emerged. The United States, industrially intact, rose to financial dominance; Bretton Woods pegged the world's currencies to the dollar and the dollar to gold. And in August 1971, President Nixon suspended that final convertibility. Money's anchor was cut. From that point on, the value of the unit in which builders price, borrow, save, and get paid has rested on policy rather than on weight or measure.
 
 Something else changed around the same time, and every wage earner has felt it since: for the postwar decades, productivity and compensation in the industrialized world grew roughly together; from the early 1970s onward they diverged. Output per hour kept climbing while real pay lagged further and further behind. Economists argue about the mechanisms. Builders experience the result. An hour of skilled work buys less house than it did for the generation before — in the very industry that produces houses. The people who build the world are increasingly unable to afford the world they build. Whatever else one concludes from that, it is not a sign of a healthy measuring stick.
 
-!IMG:preface_fiat_divergence.png|Productivity and pay: the divergence since 1971.
+!IMG:preface_fiat_divergence.webp|Productivity and pay: the divergence since 1971.
 
 This book is about three technologies that respond to that condition, and about the industry where they may matter most.
 

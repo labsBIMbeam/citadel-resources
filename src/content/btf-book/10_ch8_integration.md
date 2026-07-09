@@ -1,5 +1,5 @@
 :::vignette
-!IMG:plate_10.png|
+!IMG:plate_10.webp|
 
 Show, don't tell. It was the workshop's oldest rule, older than any of its members, and the Builder finally obeyed it in full.
 
@@ -46,7 +46,7 @@ The open-compute pattern (NIP-90 DVMs, and its successors) gives projects a spot
 
 Protocols carry facts; institutions carry judgment. The architecture reserves its human layer for the guild (Chapter 6): operator of the neutral relay and the escrow tiebreaker key, registrar of attestations (who trained whom, who vouches for what), curator of the shared library, and — borrowing the dispute-resolution insight from Hillebrand's parallel-economy chapters — first-instance arbiter whose rulings are themselves signed events, building precedent. Not a company, not a platform: a treasury (timelocked, Chapter 6), a membership of keys, and bylaws that live in the same repository as everything else. Where existing professional bodies are willing, they can *be* this layer — the architecture is indifferent to whether the guild is new or five hundred years old, only to whether its records verify.
 
-!IMG:BIMdatavendingmachine.png|The data vending machine: building information, signed and priced — the smallest unit of the open construction economy.
+!IMG:BIMdatavendingmachine.webp|The data vending machine: building information, signed and priced — the smallest unit of the open construction economy.
 
 ## The pilot: Gemeinwert / BIM-CVP
 

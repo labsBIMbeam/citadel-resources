@@ -1,5 +1,5 @@
 :::vignette
-!IMG:plate_02.png|
+!IMG:plate_02.webp|
 
 The workshop was on the third floor of a brick building that had once manufactured precision instruments, in the industrial district the city's optimization algorithms had classified as transitional — no budget for maintenance, no schedule for demolition. It existed in the gap between two spreadsheets, which made it, someone there said, the most honest neighborhood in the city.
 
@@ -49,7 +49,7 @@ The second technology answers a different failure. The internet's original promi
 
 Nostr — *Notes and Other Stuff Transmitted by Relays* — is a protocol, not a platform, released in 2020 by a pseudonymous Brazilian developer known as fiatjaf. It grew in the same free-software soil as tools like **LNbits**, the open-source Lightning account system built by **Ben Arc** — one of the ecosystem's most relentless FOSS builders, and proof that a single stubborn developer giving code away can end up carrying half an industry's plumbing. Nostr inherited exactly that culture: everything open, everything forkable, nobody's permission required. Its design is almost insultingly simple, and the simplicity is the strategy. An identity is a cryptographic keypair. A message — a "note," or any other stuff — is a small JSON document called an **event**, signed by its author's key. Events are published to **relays**: dumb servers that store and forward whatever they accept. Clients — apps — read from and write to many relays at once.
 
-!IMG:nostrnet.png|A network with no headquarters: keys publish, relays carry, everyone verifies.
+!IMG:nostrnet.webp|A network with no headquarters: keys publish, relays carry, everyone verifies.
 
 That is the whole protocol. Everything else is optional extensions, called NIPs (Nostr Implementation Possibilities), which clients and relays adopt à la carte. From these few moving parts, properties fall out that platforms cannot offer. Your identity is yours: no company issues your key, so no company can revoke it. Your words are portable: if one relay deletes or blocks them, publish to another; followers find you by key, not by server. Your record is verifiable: a signed event either verifies or it doesn't; nobody can put words in your key's mouth or quietly edit what you said. And the system has no headquarters: over 950 relays across roughly 50 countries were online in early 2026 (as read from public relay monitors), operated by companies, volunteers, and hobbyists, none of them essential.
 

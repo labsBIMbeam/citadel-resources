@@ -1,5 +1,5 @@
 :::vignette
-!IMG:plate_08.png|
+!IMG:plate_08.webp|
 
 They founded it on a Friday, because someone said institutions founded on Fridays survive their first winter, and nobody could tell anymore who in the workshop was joking.
 
@@ -36,7 +36,7 @@ Notice the economics underneath: the guild could only exist under *long horizons
 
 The guild died of many causes — industrial deskilling, the state's absorption of certification into licensing, the corporation's replacement of the craft community with the employment contract. But its slow suffocation tracks the shortening of civilization's time horizon, and the money is not innocent: institutions that live on decade-scale trust do not survive well in an economy whose unit of account loses meaning on decade scales. We did not merely change how builders are paid. We changed what kinds of institutions can afford to exist.
 
-!IMG:ch6_marks.png|The mason's mark — accountability chiseled in stone.
+!IMG:ch6_marks.webp|The mason's mark — accountability chiseled in stone.
 
 :::sidebar
 ### The Advocate's Lesson
@@ -58,7 +58,7 @@ Chapter 5 left forty teenagers running a three-year voluntary construction proje
 
 The author can report from the inside. In 2005, on a European server called Frostwolf, forty members of a guild called Holyfreaks entered Molten Core — a raid dungeon the game had designed to be unbeatable without disciplined coordination. One player, the group's quiet MVP, had spent days farming fire-resistance potions and distributed them to all forty before the pull. Ragnaros fell because one person's preparation became forty people's survival — and because the other thirty-nine trusted the call, held their roles, and stayed out of the fire. It was guild economics to the letter: voluntary contribution, shared risk, collective memory. And as the giant's story predicts, the carry was temporary. No single shoulder holds forty people's weight forever; the guild that lasts is the one that turns the MVP's knowledge into everyone's discipline.
 
-!IMG:ch6_ragnaros.png|Forty keys, one kill — the raid as proto-guild.
+!IMG:ch6_ragnaros.webp|Forty keys, one kill — the raid as proto-guild.
 
 But the digital guilds share the flaw the apprentice named without self-pity: **they build on rented ground.** The clan's city dies with the server. The forum dies with the platform's pivot. The mentor's reputation is a row in a database that a moderation queue can zero. And the economics run on volunteer burnout garnished with advertising — the knowledge is free precisely because the people maintaining it are unpaid, which is why so much of it decays, and why the paywalled alternative encloses what should be commons. The guild form found its way back. Its *property rights* and its *payroll* did not.
 
@@ -90,7 +90,7 @@ Full disclosure, in the spirit of this book's honesty rule: the case study is th
 
 The core mechanic is Chapter 2's timelock, made playable. A player locks sats — their own, returning in full at unlock — and the lock *births an object* that grows over the lock's real duration: twenty-one days of patience earns a hand-painted seal-tile whose pattern derives from the lock itself; 2,100 hours, first wheels; 210 days, a companion; twenty-one months, a tree that adds real annual rings; twenty-one years — a generation, locked and witnessed by the most secure clock humanity operates — a spaceship. The ladder's law: **"Money buys style. Time builds legend."** Cosmetics cost small sats; *status is purchasable only with time*, cannot be farmed, faked, or bought secondhand off someone else's patience, because the provenance chain (signed instance and transfer events on Nostr, anchored to the lock's outpoint) is public and replayable by anyone. It is low time preference as a game loop — Hoppe rendered in a raccoon-mascotted world — and, the designers argue, the first status system in gaming whose scarcity is not vendor-printed but physical.
 
-!IMG:palace_book.png|The Palace of Culture — born as a Revit model, delivered through a BIM-to-engine pipeline; here in its guild-citadel dress (600 Billion proof of concept, 2026).
+!IMG:palace_book.webp|The Palace of Culture — born as a Revit model, delivered through a BIM-to-engine pipeline; here in its guild-citadel dress (600 Billion proof of concept, 2026).
 
 The social architecture is the guild map of this chapter, deliberately. At the world's center stands the global **Palace of Culture** (its model, the reader of this book's acknowledgments will be unsurprised to learn, began life as a Revit model and traveled a BIM-to-engine pipeline of the exact kind Chapter 5 described). Each country gets one national palace — **founded only when twenty-one players are active**, its first twenty-one remembered permanently: *founder* as an earned, dated, provable role, the digital equivalent of names chiseled in a cathedral's foundation course. A palace grows no way except through its community — new halls, gardens, monuments appear as its people contribute; "there are no progress bars; the architecture itself is the progress bar." Guild halls, libraries, and stages are its organs; guilds and "groves" reach shared goals and unlock shared works. And the palace's building law is pure commons governance: **the Palace is decorated by everyone and built by no one** — private homes are each player's sovereign sandbox, but the shared monument accepts only finished, owned work, placed. The economy on the stages is V4V end to end: live music events stream in over Podcasting 2.0 feeds and Nostr live-event kinds, artists are paid in streamed sats and boostagrams and zaps, makers sell real work peer-to-peer for sats — a community-owned creator economy with no platform take.
 

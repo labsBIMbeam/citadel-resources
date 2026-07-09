@@ -1,5 +1,5 @@
 :::vignette
-!IMG:plate_01.png|
+!IMG:plate_01.webp|
 
 The pump station lay below street level and smelled of wet concrete, iron, and the faint mineral cold that old water leaves in a room. The Builder had been on shift since midnight. At 04:00 the work was still a valve assembly the city had classified as optimized, which in practice meant nobody had touched it in years.
 

@@ -1,5 +1,5 @@
 :::vignette
-!IMG:plate_05.png|
+!IMG:plate_05.webp|
 
 The inspector arrived without warning. That was, the Builder would later understand, the point.
 
@@ -50,7 +50,7 @@ The book's architecture rests on three foundations, each an "axiom" in the praxe
 
 **Resistance (Voskuil).** From Eric Voskuil's *Cryptoeconomics*: systems can be engineered so that external control costs more than it yields. Privacy in practice is not granted; it is *priced in* — the result of raising the cost of observation above the observer's willingness to pay. This is the cypherpunk half of the synthesis: strong cryptography is, in economic terms, the cheapest defense curve humanity has ever possessed. Encrypting a message costs microjoules; breaking it costs more energy than stars produce. Defense is cheaper than attack by dozens of orders of magnitude, *if* the defense is used. Whether privacy exists is therefore, in the end, an engineering decision made by the people who build systems — people like this book's readers.
 
-!IMG:ch3_axioms.png|The three axioms — property, identity, disclosure.
+!IMG:ch3_axioms.webp|The three axioms — property, identity, disclosure.
 
 ## The economic theorems
 
@@ -68,7 +68,7 @@ From those foundations, Hillebrand derives the propositions that make this a cha
 
 Hillebrand's Part V catalogs the working stack; readers of this book have met several layers already. On Bitcoin: **CoinJoin** (many participants compose one transaction, breaking the chain-analyst's input-output heuristics), **PayJoin** (payer and payee co-sign, poisoning the analytics quietly), **Lightning** (payments that never touch the public ledger), emerging off-chain designs (**Ark, ecash/Chaumian mints** — bearer tokens against a mint, auditably blind), each trading trust for privacy at a different point on the curve. For communication: **Tor** and, stronger, **mixnets**; end-to-end encryption everywhere; and — the newest layer, co-founded by Hillebrand himself — **Marmot/White Noise**, running the IETF's Messaging Layer Security (MLS) group-encryption standard over Nostr identities and relays, so that even the *metadata rail* has no owner. Chapter 4 returns to that one, because a construction project is, among other things, a very large encrypted group chat waiting to happen. And beneath all tools, the practice: threat modeling, compartmentalization, operational discipline — privacy as a *verb*.
 
-!IMG:ch3_toolset.png|The privacy stack — layers of defense, mid-2026.
+!IMG:ch3_toolset.webp|The privacy stack — layers of defense, mid-2026.
 
 ## The record: what happened to the builders
 

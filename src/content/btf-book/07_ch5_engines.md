@@ -1,5 +1,5 @@
 :::vignette
-!IMG:plate_07.png|
+!IMG:plate_07.webp|
 
 The apprentice was seventeen, on site for a school placement week, and universally regarded as a catastrophe. He could not read a sectional drawing. He held the laser level like an artifact from a fallen civilization. On Wednesday he had been found asleep in the materials container.
 
@@ -36,7 +36,7 @@ Every technology in this book so far has been infrastructure — invisible when 
 
 Strip the marketing: a game engine is a **real-time simulation kernel** — scene graph, physics, materials, lighting, audio, input, and multiplayer networking — engineered to render a coherent world sixty times per second on consumer hardware. Two properties matter for construction. **Real-time means conversational:** a review meeting can ask "what if the atrium were two metres wider?" and see the answer now, not after a rendering farm's weekend. **Multiplayer means shared:** the model stops being a file someone owns and becomes a *place* several people are standing in, which — the vignette's point — quietly abolishes the stale-copy problem that Chapter 1 priced in billions.
 
-!IMG:ch5_pipeline.png|The BIM-to-engine pipeline — from drafting table to shared world.
+!IMG:ch5_pipeline.webp|The BIM-to-engine pipeline — from drafting table to shared world.
 
 The maturity is recent. Unreal Engine 5 shipped virtualized micro-polygon geometry (Nanite) and fully dynamic global illumination (Lumen), which in AEC translation means: full-detail BIM models, hundreds of millions of polygons, explorable photorealistically without the manual decimation that used to consume visualization budgets. The pipelines industrialized in parallel — Datasmith importers translate Revit, Archicad, Rhino, and IFC with materials and metadata; Twinmotion, Epic's one-click visualization tool, ships bundled with Revit itself. The gap between "authoring model" and "walkable world" has fallen from a specialist's month to a coffee break.
 

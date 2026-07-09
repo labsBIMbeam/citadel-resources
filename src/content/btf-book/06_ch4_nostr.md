@@ -1,5 +1,5 @@
 :::vignette
-!IMG:plate_06.png|
+!IMG:plate_06.webp|
 
 The cryptographer had been a handle, a code signature, a relay node, a coffee mug left unwashed on the workshop bench. The Builder had exchanged a hundred messages with the cryptographer before learning there was a face, and the face turned out to be about twenty-two years old and annoyed by lighting.
 
@@ -30,7 +30,7 @@ Chapter 1 diagnosed a trust gap: the industry's core evidentiary need — *who i
 
 An **identity** is a keypair; the public key (npub) is the name. An **event** is a small JSON object — pubkey, timestamp, kind, tags, content — hashed and signed. Sign it and it is done: the event is valid forever, independent of any server's opinion. A **relay** is a server that accepts, stores, and serves events over WebSocket. Clients publish to several relays and read from several; nothing about the set is fixed, and switching costs approach zero. **Kinds** partition meaning (a profile, a note, a reaction, a long-form article, a calendar entry, a marketplace listing...), and **NIPs** — Nostr Implementation Possibilities — specify them; clients adopt what they need and ignore the rest.
 
-!IMG:nostr.png|Notes and other stuff, transmitted by relays — the protocol on one canvas (illustration: @awayuki).
+!IMG:nostr.webp|Notes and other stuff, transmitted by relays — the protocol on one canvas (illustration: @awayuki).
 
 Three design decisions carry the whole argument. **Verification is client-side:** every reader checks every signature; a relay's honesty is never load-bearing. **Identity is transport-independent:** followers, reputations, and records attach to keys, so no operator owns the graph. **The protocol is dumb on purpose:** relays don't interpret content, which is why one wire format serves social feeds, wikis, marketplaces, git — and, if this book has its way, transmittal registers.
 

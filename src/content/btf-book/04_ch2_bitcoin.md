@@ -1,5 +1,5 @@
 :::vignette
-!IMG:plate_04.png|
+!IMG:plate_04.webp|
 
 Payday in the official world arrived as a notification: a number had been added to an account, and the account was a promise, and the promise was denominated in units whose meaning was decided in rooms the Builder would never enter.
 
@@ -32,7 +32,7 @@ The construction industry's problems, Chapter 1 argued, reduce to coordination, 
 
 Money is not wealth; it is the medium through which wealth is exchanged and — critically for builders — *measured across time*. Carl Menger showed that money emerges from barter as the most saleable good: people converge on whatever commodity loses least value in trade, and its universal acceptance becomes self-reinforcing. Historically the winners were goods that were durable, divisible, portable, verifiable, and above all **scarce** — hard to produce at will. Gold won for centuries because its supply grew at low single digits per year no matter how badly kings wanted otherwise.
 
-!IMG:ch2_sound_money.png|Verify, don't trust — then and now.
+!IMG:ch2_sound_money.webp|Verify, don't trust — then and now.
 
 Ludwig von Mises extended the point with a theorem builders will find intuitive: economic calculation — knowing whether a project creates or destroys value — is only possible with genuine prices, and genuine prices are only possible when money itself is not being silently re-scaled. Every estimate, every tender comparison, every life-cycle cost analysis is an exercise in calculation. Do it with a rubber ruler and the errors compound quietly until they arrive, as they always do in construction, in person.
 
@@ -64,7 +64,7 @@ For the saver — the apprentice, the subcontractor, the maintenance fund — th
 
 Base-layer Bitcoin settles with the finality of a land registry, and with similar throughput. The Lightning Network is the circulating layer built on top: parties open a channel with an on-chain transaction, then exchange signed balance updates off-chain — thousands per second if desired — with the timechain as the ever-present enforcement backstop. Payments route across the channel graph in seconds, at fees measured in fractions of a cent, at any hour, across any border, final on receipt.
 
-!IMG:ch2_lightning.png|Lightning — money at the speed of the work.
+!IMG:ch2_lightning.webp|Lightning — money at the speed of the work.
 
 Translate to the industry of 57-to-90-day payment cycles:
 

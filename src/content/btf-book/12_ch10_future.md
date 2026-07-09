@@ -1,5 +1,5 @@
 :::vignette
-!IMG:plate_12.png|
+!IMG:plate_12.webp|
 
 Years later — never mind how many — the Builder stood on a hill above the city with an apprentice, because taking apprentices up the hill had become one of the guild's small liturgies, and the turn had come around again.
 
@@ -26,7 +26,7 @@ The apprentice wrote it down.
 
 The first edition of this book closed with a vision of 2054, and this edition keeps faith with it — inhabitants co-creating their cities in immersive worlds, modular assembly from fabrication hubs, buildings as ecosystems, value-driven urbanism — while holding it to the standard the intervening years taught: visions are cheap; trajectories are earned. So this final chapter does three things a serious book owes its reader at the door: it extrapolates *only* from components demonstrated in the preceding chapters; it names what would falsify its optimism; and it ends with assignments rather than applause.
 
-!IMG:intruduction.png|The quarter that patience built.
+!IMG:intruduction.webp|The quarter that patience built.
 
 ## The trajectory, extrapolated honestly
 
@@ -42,7 +42,7 @@ Assignments, by role — each one small enough to start this week, chosen so tha
 
 **Everyone:** take one real reading, of anything, and write it down. That is where the Builder started.
 
-!IMG:future_skyline.png|The skyline the Builder saw from the hill.
+!IMG:future_skyline.webp|The skyline the Builder saw from the hill.
 
 ## The last page of the argument
 

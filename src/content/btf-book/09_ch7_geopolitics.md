@@ -1,5 +1,5 @@
 :::vignette
-!IMG:plate_09.png|
+!IMG:plate_09.webp|
 
 The announcement came on a Wednesday. It always came on a Wednesday, the economist said; midweek releases sat lowest in the attention curve.
 
@@ -34,7 +34,7 @@ The pattern below the headline is more instructive than the headline. The **Czec
 
 The monetary backdrop explains why the option stays on every table. U.S. gross federal debt passed **39 trillion dollars** by mid-2026 with net interest around one trillion a year and rising on official projections; the dollar's share of global reserves drifted to about **57 percent** (from ~73 percent at the century's start); central banks bought gold near record pace for a fourth year — by one measure gold passed U.S. Treasuries as a share of central-bank reserves for the first time since 1996 — and survey after survey of reserve managers pointed the same direction: away from unhedged exposure to any single sovereign's promises. De-dollarization rhetoric (BRICS currencies and the like) remains mostly rhetoric — local-currency settlement grows incrementally; no common currency exists; the viral statistics are unverifiable — but the *hedging* is real, and bitcoin now sits on the menu of hedges, state-grade. Meanwhile the CBDC track advanced in exactly the opposite spirit: the ECB moved its digital euro toward pilots (potential issuance toward the decade's end, legislation pending), while the U.S. banned federal CBDC work outright — one bloc building programmable state money, the other forbidding it, both confirming Chapter 3's analysis that the battle is over *who observes and controls the ledger*.
 
-!IMG:ch7_reserve_map.png|The sovereign stack — who holds what, mid-2026.
+!IMG:ch7_reserve_map.webp|The sovereign stack — who holds what, mid-2026.
 
 ## The law arrives
 
@@ -48,7 +48,7 @@ The third layer belongs, at last, to this book's home discipline. Bitcoin mining
 
 For the HVAC engineer, one more property outranks all of the above: a miner converts electricity to heat at essentially 100 percent, *while earning revenue*. A resistive heating element that pays for its own electricity is not a metaphor — commercial products already heat Nordic district-heating loops, greenhouses, pools, and apartment blocks with hashboards; at building scale the arithmetic works wherever heat demand, electricity price, and noise abatement align. Honest label: niche today, economics hash-price-dependent, integration unglamorous. But this book was written by someone who sizes heating plants, and the idea of *Abwärme mit Einnahmen* — waste heat with an income statement — belongs in every low-temperature design study from here on. The wire that carries the timechain's security budget terminates, sometimes, in a radiator.
 
-!IMG:ch7_mining_boiler.png|The miner in the basement — hash as heat.
+!IMG:ch7_mining_boiler.webp|The miner in the basement — hash as heat.
 
 ## Reading two maps at once
 
