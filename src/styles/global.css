@@ -2444,6 +2444,76 @@ html.has-flourishes .chapter-image img:not(.is-loaded) {
   transform: rotate(-6deg) scale(1.06);
 }
 
+/* Resume banner: pick up where you left off */
+.reader-resume {
+  display: flex;
+  min-width: 0;
+  align-items: stretch;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-strong);
+}
+
+.reader-resume[hidden] {
+  display: none;
+}
+
+.reader-resume button {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.reader-resume [data-reader-resume-go] {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.55rem 1rem;
+  text-align: left;
+}
+
+.reader-resume [data-reader-resume-go] .mono {
+  flex: 0 0 auto;
+  color: var(--copper);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+}
+
+.reader-resume [data-reader-resume-go] strong {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 0.85rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.reader-resume [data-reader-resume-go]:hover strong,
+.reader-resume [data-reader-resume-go]:focus-visible strong {
+  color: var(--copper);
+}
+
+.reader-resume [data-reader-resume-dismiss] {
+  padding: 0 0.9rem;
+  border-left: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.reader-resume [data-reader-resume-dismiss]:hover,
+.reader-resume [data-reader-resume-dismiss]:focus-visible {
+  color: var(--copper);
+}
+
+/* Read ticks in the TOC */
+.toc-button.is-read strong::after {
+  content: ' ✓';
+  color: var(--copper);
+}
+
 /* Scroll reveal (only when JS is present; skipped for reduced motion) */
 html.has-flourishes .reveal {
   opacity: 0;

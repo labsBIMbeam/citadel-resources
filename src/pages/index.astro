@@ -146,6 +146,15 @@ const panelLabels = {
             </div>
           </div>
           <div class="reader-progress" aria-hidden="true"><span data-reader-progress></span></div>
+          <div class="reader-resume" data-reader-resume hidden>
+            <button type="button" data-reader-resume-go>
+              <span class="mono">// continue reading</span>
+              <strong data-reader-resume-label></strong>
+            </button>
+            <button type="button" data-reader-resume-dismiss aria-label="Dismiss resume banner">
+              &times;
+            </button>
+          </div>
           <div class="reader-window" data-reader>
             {
               bookChapters.map((chapter, index) => (
@@ -398,8 +407,42 @@ const panelLabels = {
 
       const tocItems = Array.from(document.querySelectorAll<HTMLDetailsElement>('[data-toc-item]'));
 
-      const setChapter = (id = '', options: { scrollTop?: boolean } = {}) => {
-        const { scrollTop = true } = options;
+      const STORAGE_KEY = 'citadel-reader';
+
+      type ReaderMemory = { lastChapter?: string; scroll?: number; read?: string[] };
+
+      const loadMemory = (): ReaderMemory => {
+        try {
+          return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+        } catch {
+          return {};
+        }
+      };
+
+      const saveMemory = (patch: ReaderMemory) => {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...loadMemory(), ...patch }));
+        } catch {
+          /* storage unavailable (private mode) — reader still works without memory */
+        }
+      };
+
+      const readChapters = new Set(loadMemory().read || []);
+
+      const markChapterRead = (id: string) => {
+        if (!readChapters.has(id)) {
+          readChapters.add(id);
+          saveMemory({ read: [...readChapters] });
+        }
+        buttons.forEach((button) => {
+          if (button.dataset.chapterTarget === id) {
+            button.classList.add('is-read');
+          }
+        });
+      };
+
+      const setChapter = (id = '', options: { scrollTop?: boolean; updateHash?: boolean } = {}) => {
+        const { scrollTop = true, updateHash = true } = options;
         const targetId = chapters.some((chapter) => chapter.dataset.readerChapter === id)
           ? id
           : chapters[0]?.dataset.readerChapter || '';
@@ -422,6 +465,10 @@ const panelLabels = {
         if (progress) {
           progress.style.transform = 'scaleX(0)';
         }
+        if (updateHash) {
+          history.replaceState(null, '', `#reader/${targetId}`);
+        }
+        saveMemory({ lastChapter: targetId, scroll: 0 });
       };
 
       buttons.forEach((button) => {
@@ -449,9 +496,13 @@ const panelLabels = {
 
       document.querySelectorAll<HTMLElement>('[data-section-jump]').forEach((button) => {
         button.addEventListener('click', () => {
-          setChapter(button.dataset.sectionChapter || '', { scrollTop: false });
+          const chapterId = button.dataset.sectionChapter || '';
+          const anchor = button.dataset.sectionJump || '';
 
-          const target = document.getElementById(button.dataset.sectionJump || '');
+          setChapter(chapterId, { scrollTop: false, updateHash: false });
+          history.replaceState(null, '', `#reader/${chapterId}/${anchor.slice(chapterId.length + 1)}`);
+
+          const target = document.getElementById(anchor);
 
           if (!reader || !target) return;
 
@@ -484,27 +535,34 @@ const panelLabels = {
 
       chapterSelect?.addEventListener('change', () => setChapter(chapterSelect.value));
 
-      document.querySelector('[data-reader-prev]')?.addEventListener('click', () => {
+      const stepChapter = (delta: number) => {
         const activeIndex = chapters.findIndex((chapter) =>
           chapter.classList.contains('is-active')
         );
-        const previousIndex = activeIndex <= 0 ? chapters.length - 1 : activeIndex - 1;
-        setChapter(chapters[previousIndex]?.dataset.readerChapter || '');
-      });
-
-      document.querySelector('[data-reader-next]')?.addEventListener('click', () => {
-        const activeIndex = chapters.findIndex((chapter) =>
-          chapter.classList.contains('is-active')
-        );
-        const nextIndex = activeIndex >= chapters.length - 1 ? 0 : activeIndex + 1;
+        const nextIndex = (activeIndex + delta + chapters.length) % chapters.length;
         setChapter(chapters[nextIndex]?.dataset.readerChapter || '');
-      });
+      };
+
+      document.querySelector('[data-reader-prev]')?.addEventListener('click', () => stepChapter(-1));
+      document.querySelector('[data-reader-next]')?.addEventListener('click', () => stepChapter(1));
+
+      let scrollSaveTimer: ReturnType<typeof setTimeout> | undefined;
 
       reader?.addEventListener('scroll', () => {
-        if (!progress) return;
         const max = reader.scrollHeight - reader.clientHeight;
-        const value = max > 0 ? reader.scrollTop / max : 0;
-        progress.style.transform = `scaleX(${Math.min(1, Math.max(0, value))})`;
+        const value = max > 0 ? Math.min(1, Math.max(0, reader.scrollTop / max)) : 0;
+        if (progress) {
+          progress.style.transform = `scaleX(${value})`;
+        }
+        if (value > 0.85) {
+          const activeId = chapters.find((chapter) => chapter.classList.contains('is-active'))
+            ?.dataset.readerChapter;
+          if (activeId) {
+            markChapterRead(activeId);
+          }
+        }
+        clearTimeout(scrollSaveTimer);
+        scrollSaveTimer = setTimeout(() => saveMemory({ scroll: value }), 400);
       });
 
       document.querySelector('[data-reader-smaller]')?.addEventListener('click', () => {
@@ -530,8 +588,83 @@ const panelLabels = {
       document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && shell?.classList.contains('is-reader-fullscreen')) {
           setReaderFullscreen(false);
+          return;
         }
+
+        if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+        if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+
+        const target = event.target instanceof Element ? event.target : null;
+        if (target?.closest('input, select, textarea, [contenteditable="true"]')) return;
+
+        // Only page through chapters while the reader is on screen.
+        const rect = shell?.getBoundingClientRect();
+        if (!rect || rect.top > window.innerHeight || rect.bottom < 0) return;
+
+        stepChapter(event.key === 'ArrowRight' ? 1 : -1);
       });
+
+      const resumeBanner = document.querySelector<HTMLElement>('[data-reader-resume]');
+      const resumeLabel = document.querySelector<HTMLElement>('[data-reader-resume-label]');
+
+      const chapterTitle = (id: string) =>
+        chapterSelect?.querySelector(`option[value="${id}"]`)?.textContent?.trim() || id;
+
+      const bootFromHash = () => {
+        const match = location.hash.match(/^#reader\/([A-Za-z0-9_-]+)(?:\/(sec-\d+))?$/);
+
+        if (!match) return false;
+
+        setChapter(match[1], { scrollTop: false, updateHash: false });
+
+        const section = match[2] ? document.getElementById(`${match[1]}-${match[2]}`) : null;
+
+        if (reader && section) {
+          reader.scrollTop =
+            section.getBoundingClientRect().top -
+            reader.getBoundingClientRect().top +
+            reader.scrollTop -
+            16;
+        }
+        document.getElementById('reader')?.scrollIntoView();
+        return true;
+      };
+
+      const bootFromMemory = () => {
+        const memory = loadMemory();
+        const last = memory.lastChapter || '';
+        const savedScroll = memory.scroll || 0;
+        const isKnown = chapters.some((chapter) => chapter.dataset.readerChapter === last);
+        const isFreshStart = last === chapters[0]?.dataset.readerChapter && savedScroll < 0.02;
+
+        if (!isKnown || isFreshStart || !resumeBanner || !resumeLabel) return;
+
+        resumeLabel.textContent = chapterTitle(last);
+        resumeBanner.hidden = false;
+
+        document.querySelector('[data-reader-resume-go]')?.addEventListener('click', () => {
+          setChapter(last, { scrollTop: false });
+          if (reader) {
+            reader.scrollTop = savedScroll * (reader.scrollHeight - reader.clientHeight);
+          }
+          resumeBanner.hidden = true;
+        });
+        document.querySelector('[data-reader-resume-dismiss]')?.addEventListener('click', () => {
+          resumeBanner.hidden = true;
+        });
+      };
+
+      readChapters.forEach((id) => {
+        buttons.forEach((button) => {
+          if (button.dataset.chapterTarget === id) {
+            button.classList.add('is-read');
+          }
+        });
+      });
+
+      if (!bootFromHash()) {
+        bootFromMemory();
+      }
     };
 
     const initFlourishes = () => {
