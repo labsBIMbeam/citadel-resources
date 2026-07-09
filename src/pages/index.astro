@@ -11,6 +11,22 @@ import {
 } from '../data/resources';
 
 const totalReadMinutes = bookChapters.reduce((total, chapter) => total + chapter.minutes, 0);
+
+type TocSection = { anchor: string; text: string };
+const sectionAnchors = new Map<object, string>();
+const chapterSections = new Map<string, TocSection[]>();
+
+bookChapters.forEach((chapter) => {
+  const sections: TocSection[] = [];
+  (chapter.blocks ?? []).forEach((block) => {
+    if (block.type === 'heading' && block.level === 2) {
+      const anchor = `${chapter.id}-sec-${sections.length + 1}`;
+      sectionAnchors.set(block, anchor);
+      sections.push({ anchor, text: block.text });
+    }
+  });
+  chapterSections.set(chapter.id, sections);
+});
 const visibleResearchTracks = researchTracks.filter((track) => track.label !== 'Publishing layer');
 const panelLabels = {
   vignette: 'The Builder',
@@ -51,17 +67,38 @@ const panelLabels = {
           <p class="eyebrow">Contents / {bookChapters.length}</p>
           <div class="toc-list">
             {
-              bookChapters.map((chapter, index) => (
-                <button
-                  class={index === 0 ? 'toc-button is-active' : 'toc-button'}
-                  type="button"
-                  data-chapter-target={chapter.id}
-                >
-                  <span>{chapter.label}</span>
-                  <strong>{chapter.title}</strong>
-                  <small>{chapter.minutes} min</small>
-                </button>
-              ))
+              bookChapters.map((chapter, index) => {
+                const sections = chapterSections.get(chapter.id) ?? [];
+                const buttonClass = index === 0 ? 'toc-button is-active' : 'toc-button';
+
+                return sections.length > 0 ? (
+                  <details class="toc-item" data-toc-item={chapter.id}>
+                    <summary class={buttonClass} data-chapter-target={chapter.id}>
+                      <span>{chapter.label}</span>
+                      <strong>{chapter.title}</strong>
+                      <small>{chapter.minutes} min</small>
+                    </summary>
+                    <div class="toc-sections">
+                      {sections.map((section) => (
+                        <button
+                          type="button"
+                          class="toc-section"
+                          data-section-jump={section.anchor}
+                          data-section-chapter={chapter.id}
+                        >
+                          {section.text}
+                        </button>
+                      ))}
+                    </div>
+                  </details>
+                ) : (
+                  <button class={buttonClass} type="button" data-chapter-target={chapter.id}>
+                    <span>{chapter.label}</span>
+                    <strong>{chapter.title}</strong>
+                    <small>{chapter.minutes} min</small>
+                  </button>
+                );
+              })
             }
           </div>
         </aside>
@@ -134,7 +171,9 @@ const panelLabels = {
                   {chapter.blocks
                     ? chapter.blocks.map((block) => (
                         <>
-                          {block.type === 'heading' && block.level === 2 && <h3>{block.text}</h3>}
+                          {block.type === 'heading' && block.level === 2 && (
+                            <h3 id={sectionAnchors.get(block)}>{block.text}</h3>
+                          )}
                           {block.type === 'heading' && block.level === 3 && <h4>{block.text}</h4>}
                           {block.type === 'paragraph' && <p>{block.text}</p>}
                           {block.type === 'quote' && (
@@ -357,7 +396,10 @@ const panelLabels = {
         syncFullscreenButton();
       };
 
-      const setChapter = (id = '') => {
+      const tocItems = Array.from(document.querySelectorAll<HTMLDetailsElement>('[data-toc-item]'));
+
+      const setChapter = (id = '', options: { scrollTop?: boolean } = {}) => {
+        const { scrollTop = true } = options;
         const targetId = chapters.some((chapter) => chapter.dataset.readerChapter === id)
           ? id
           : chapters[0]?.dataset.readerChapter || '';
@@ -368,10 +410,13 @@ const panelLabels = {
         chapters.forEach((chapter) => {
           chapter.classList.toggle('is-active', chapter.dataset.readerChapter === targetId);
         });
+        tocItems.forEach((item) => {
+          item.open = item.dataset.tocItem === targetId;
+        });
         if (chapterSelect && chapterSelect.value !== targetId) {
           chapterSelect.value = targetId;
         }
-        if (reader) {
+        if (reader && scrollTop) {
           reader.scrollTo({ top: 0, behavior: 'smooth' });
         }
         if (progress) {
@@ -380,7 +425,61 @@ const panelLabels = {
       };
 
       buttons.forEach((button) => {
-        button.addEventListener('click', () => setChapter(button.dataset.chapterTarget || ''));
+        button.addEventListener('click', (event) => {
+          const details = button.closest<HTMLDetailsElement>('details.toc-item');
+
+          if (details) {
+            // Summaries: control open state manually (accordion behavior).
+            event.preventDefault();
+
+            if (details.open && button.classList.contains('is-active')) {
+              details.open = false;
+              return;
+            }
+          }
+
+          setChapter(button.dataset.chapterTarget || '');
+        });
+      });
+
+      // Lazy images above a jump target shift the layout as they load, so keep
+      // re-anchoring for a short window after each jump (until the user scrolls).
+      let jumpFixup: (() => void) | null = null;
+      let jumpFixupExpiry: ReturnType<typeof setTimeout> | undefined;
+
+      document.querySelectorAll<HTMLElement>('[data-section-jump]').forEach((button) => {
+        button.addEventListener('click', () => {
+          setChapter(button.dataset.sectionChapter || '', { scrollTop: false });
+
+          const target = document.getElementById(button.dataset.sectionJump || '');
+
+          if (!reader || !target) return;
+
+          const scrollToTarget = (behavior: ScrollBehavior) => {
+            const top =
+              target.getBoundingClientRect().top -
+              reader.getBoundingClientRect().top +
+              reader.scrollTop -
+              16;
+            reader.scrollTo({ top: Math.max(0, top), behavior });
+          };
+
+          scrollToTarget('smooth');
+
+          clearTimeout(jumpFixupExpiry);
+          jumpFixup = () => scrollToTarget('auto');
+          jumpFixupExpiry = setTimeout(() => {
+            jumpFixup = null;
+          }, 2500);
+        });
+      });
+
+      // 'load' does not bubble, so listen in the capture phase.
+      reader?.addEventListener('load', () => jumpFixup?.(), true);
+      ['wheel', 'touchstart'].forEach((eventName) => {
+        reader?.addEventListener(eventName, () => {
+          jumpFixup = null;
+        }, { passive: true });
       });
 
       chapterSelect?.addEventListener('change', () => setChapter(chapterSelect.value));

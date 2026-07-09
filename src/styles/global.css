@@ -295,11 +295,6 @@ code {
   overflow: hidden;
 }
 
-.reader-shell.is-dusk {
-  background: #19231f;
-  color: #f7f4ea;
-}
-
 .reader-toolbar {
   display: flex;
   align-items: center;
@@ -308,10 +303,6 @@ code {
   min-height: 72px;
   border-bottom: 1px solid var(--line);
   padding: 0.85rem 1rem;
-}
-
-.reader-shell.is-dusk .reader-toolbar {
-  border-color: rgba(247, 244, 234, 0.18);
 }
 
 .reader-toolbar strong {
@@ -393,11 +384,6 @@ code {
   font-size: calc(1.18rem * var(--reader-scale));
   font-weight: 700;
   line-height: 1.4;
-}
-
-.reader-shell.is-dusk .chapter-deck,
-.reader-shell.is-dusk .reader-chapter p {
-  color: rgba(247, 244, 234, 0.82);
 }
 
 .reader-chapter p {
@@ -1570,6 +1556,48 @@ a:hover {
   font-weight: 700;
 }
 
+/* Collapsible TOC chapters */
+summary.toc-button {
+  list-style: none;
+  cursor: pointer;
+}
+
+summary.toc-button::-webkit-details-marker {
+  display: none;
+}
+
+.toc-item[open] > summary.toc-button {
+  border-left-color: var(--copper);
+  background: var(--surface-strong);
+  color: var(--ink);
+}
+
+.toc-sections {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.2rem 1rem 0.7rem 3.9rem;
+}
+
+.toc-section {
+  border: 0;
+  border-left: 2px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+  text-align: left;
+  padding: 0.28rem 0 0.28rem 0.7rem;
+  cursor: pointer;
+}
+
+.toc-section:hover,
+.toc-section:focus-visible {
+  border-left-color: var(--copper);
+  background: transparent;
+  color: var(--ink);
+}
+
 .reader-shell {
   min-height: 760px;
   border: 0;
@@ -1865,11 +1893,20 @@ body.has-reader-fullscreen .reader-hero {
 
 .reader-shell.is-dusk {
   --bg: #ece3d0;
-  --ink: #241a12;
-  --muted: #5c4b38;
+  --ink: #1c140d;
+  --muted: #4a3a29;
   --surface: #f3ecdb;
   --surface-strong: #fbf5e8;
   --line: rgba(0, 0, 0, 0.13);
+  --line-strong: rgba(0, 0, 0, 0.28);
+  --dark-soft: #e4dac4;
+}
+
+/* Light tone: body text near-black, also in fullscreen */
+.reader-shell.is-dusk .reader-chapter p,
+.reader-shell.is-dusk .chapter-section p,
+.reader-shell.is-dusk .reader-chapter .chapter-list {
+  color: var(--ink);
 }
 
 .section {
@@ -2235,7 +2272,6 @@ body.has-reader-fullscreen .reader-hero {
   .guild-menu {
     border-bottom: 0;
   }
-
   .guild-dossier__head {
     gap: 0.8rem;
   }

@@ -163,18 +163,6 @@ const normalizeTitle = (heading: string | undefined, fallback: string): string =
   return title || fallback;
 };
 
-const truncateDeck = (text: string): string => {
-  const cleaned = cleanText(text);
-
-  if (cleaned.length <= 175) {
-    return cleaned;
-  }
-
-  const trimmed = cleaned.slice(0, 172);
-  const lastSpace = trimmed.lastIndexOf(' ');
-  return `${trimmed.slice(0, lastSpace > 100 ? lastSpace : 172)}...`;
-};
-
 const parseImage = (line: string): BookBlock | undefined => {
   const match = line.match(/^!IMG:([^|]+)(?:\|(.*))?$/);
 
@@ -373,42 +361,6 @@ const parseBlocks = (raw: string, skipFirstHeading: boolean): ParseResult => {
   return { blocks, firstHeading };
 };
 
-const blockText = (block: BookBlock): string => {
-  if (block.type === 'paragraph' || block.type === 'heading' || block.type === 'quote') {
-    return block.text;
-  }
-
-  if (block.type === 'list') {
-    return block.items.join(' ');
-  }
-
-  if (block.type === 'image') {
-    return block.caption ?? '';
-  }
-
-  return block.blocks.map(blockText).join(' ');
-};
-
-const firstParagraph = (blocks: BookBlock[]): string | undefined => {
-  const directParagraph = blocks.find((block) => block.type === 'paragraph');
-
-  if (directParagraph?.type === 'paragraph') {
-    return directParagraph.text;
-  }
-
-  for (const block of blocks) {
-    if (block.type === 'panel') {
-      const nested = firstParagraph(block.blocks);
-
-      if (nested) {
-        return nested;
-      }
-    }
-  }
-
-  return undefined;
-};
-
 const estimateMinutes = (raw: string): number => {
   const wordCount = cleanText(raw)
     .split(/\s+/)
@@ -419,14 +371,14 @@ const estimateMinutes = (raw: string): number => {
 
 const parseChapter = (source: ChapterSource): BookChapter => {
   const parsed = parseBlocks(source.raw, true);
-  const bodyText = parsed.blocks.map(blockText).join(' ');
-  const deck = truncateDeck(firstParagraph(parsed.blocks) ?? bodyText ?? source.fallbackDeck);
 
   return {
     id: source.id,
     label: source.label,
     title: normalizeTitle(parsed.firstHeading, source.fallbackTitle),
-    deck: deck || source.fallbackDeck,
+    // Curated tagline instead of a truncated copy of the first paragraph
+    // (the full paragraph is rendered in the chapter body anyway).
+    deck: source.fallbackDeck,
     minutes: estimateMinutes(source.raw),
     blocks: parsed.blocks,
   };
