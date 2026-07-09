@@ -788,7 +788,7 @@ export const nostr: NostrConfig = {
 };
 
 export const CONTACT = {
-  email: 'mail@citadelresources.com',
+  npub: 'npub1su4kplwca3euuyerm9ucq4ecf7ucxegqmxmjq9v5cudw8l8zk6qqejetyp',
   telegram: 'https://t.me/citadelresources',
   sister: { name: 'Bitcoin Resources', url: 'https://bitcoin-resources.com/' },
   sister2: { name: 'Nostr Resources', url: 'https://nostr-resources.com/' },

@@ -8,12 +8,19 @@ import { CONTACT } from '../data/resources';
       <p class="eyebrow">Contribute</p>
       <h2>Send sources, chapter notes, or guild leads.</h2>
       <p>
-        The site stays static and auditable. Send source material by mail or Telegram while the
-        public relay workflow is being prepared.
+        The site stays static and auditable. Send source material over Nostr or Telegram while
+        the public relay workflow is being prepared.
       </p>
     </div>
     <div class="contact-actions" aria-label="Contact links">
-      <a class="button button--primary" href={`mailto:${CONTACT.email}`}>Mail</a>
+      <a
+        class="button button--primary"
+        href={`https://njump.me/${CONTACT.npub}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Nostr
+      </a>
       <a class="button" href={CONTACT.telegram} target="_blank" rel="noopener noreferrer">Telegram</a>
     </div>
   </div>
