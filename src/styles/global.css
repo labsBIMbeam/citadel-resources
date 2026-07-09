@@ -1233,7 +1233,7 @@ code {
   }
 
   .nav-list {
-    display: none;
+    max-width: 62vw;
   }
 
   .toc-button {
@@ -1436,7 +1436,7 @@ a:hover {
 .reader-bg {
   background:
     linear-gradient(90deg, var(--bg) 8%, rgba(23, 19, 14, 0.58) 58%, rgba(23, 19, 14, 0.84)),
-    url("/images/cypherspace/cover_hero_workshop_node.png") center 38% / cover;
+    url("/images/cypherspace/cover_hero_workshop_node.webp") center 38% / cover;
 }
 
 .reader-hero::after {
@@ -1587,7 +1587,7 @@ summary.toc-button::-webkit-details-marker {
   font-family: var(--font-serif);
   font-size: 0.8rem;
   text-align: left;
-  padding: 0.28rem 0 0.28rem 0.7rem;
+  padding: 0.45rem 0 0.45rem 0.7rem;
   cursor: pointer;
 }
 
@@ -2284,6 +2284,13 @@ body.has-reader-fullscreen .reader-hero {
 @media (max-width: 620px) {
   .reader-mast {
     padding-block: 32px;
+  }
+
+  /* Keep the 15-chapter TOC from pushing the reader below the fold */
+  .reader-toc .toc-list {
+    max-height: 45vh;
+    overflow-y: auto;
+    padding-right: 0.25rem;
   }
 
   .reader-mast h1,
