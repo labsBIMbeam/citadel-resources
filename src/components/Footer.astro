@@ -2,14 +2,26 @@
 import { CONTACT } from '../data/resources';
 ---
 
-<section class="contact" id="contact">
-  <div class="container">
-    <p class="label">// Contribute</p>
-    <h2>Suggest a resource.</h2>
-    <p>Missing a voice, a tribe, a book? The index grows with the village.</p>
-    <div class="contact__links">
-      <a class="btn btn--primary" href={`mailto:${CONTACT.email}`}>Mail {CONTACT.email}</a>
-      <a class="btn btn--ghost" href={CONTACT.telegram} target="_blank" rel="noopener">Telegram</a>
+<section class="contact-band" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <p class="eyebrow">Contribute</p>
+      <h2>Send sources, chapter notes, or guild leads.</h2>
+      <p>
+        The site stays static and auditable. Send source material over Nostr or Telegram while
+        the public relay workflow is being prepared.
+      </p>
+    </div>
+    <div class="contact-actions" aria-label="Contact links">
+      <a
+        class="button button--primary"
+        href={`https://njump.me/${CONTACT.npub}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Nostr
+      </a>
+      <a class="button" href={CONTACT.telegram} target="_blank" rel="noopener noreferrer">Telegram</a>
     </div>
   </div>
 </section>
@@ -17,9 +29,10 @@ import { CONTACT } from '../data/resources';
 <footer class="site-footer">
   <div class="container">
     <p>
-      Citadel Resources · FOSS · No trackers ·
-      <a href={CONTACT.sister.url} target="_blank" rel="noopener">{CONTACT.sister.name}</a> ·
-      <a href={CONTACT.sister2.url} target="_blank" rel="noopener">{CONTACT.sister2.name}</a>
+      Citadel Resources | FOSS | no trackers |
+      <a href={CONTACT.sister.url} target="_blank" rel="noopener noreferrer">{CONTACT.sister.name}</a>
+      |
+      <a href={CONTACT.sister2.url} target="_blank" rel="noopener noreferrer">{CONTACT.sister2.name}</a>
     </p>
   </div>
 </footer>

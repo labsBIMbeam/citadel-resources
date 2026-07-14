@@ -2,6 +2,14 @@
 old/
 assets/recovered/
 citadel-salvaged/
+Cypherspace guild builder.zip
+assets/images/
+
+# Local/private source notes used for drafting, not public website artifacts
+BOOK_ROADMAP.md
+CITADEL_RESOURCES_PHILOSOPHY.md
+Der_schlafende_Riese.md
+VIBELINE_GUIDE.md
 
 # Astro / Node
 node_modules/

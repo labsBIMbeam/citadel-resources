@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base title="404 - Citadel Resources" description="This wing was never built.">
+  <Header />
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">Error / 404</p>
+        <h1 class="section__title">This wing was never built.</h1>
+        <p class="section__desc">
+          The blueprint shows no page at this address. Maybe it was drafted and discarded, maybe
+          it is still waiting for its builder. Head back to the reading room.
+        </p>
+        <p>
+          <a class="button button--primary" href="/">Back to the citadel</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Base>

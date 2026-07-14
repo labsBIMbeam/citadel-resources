@@ -1,25 +1,25 @@
 ---
 const nav = [
-  { href: '#tribes', label: 'Tribes' },
-  { href: '#videos', label: 'Videos' },
-  { href: '#podcasts', label: 'Podcasts' },
-  { href: '#articles', label: 'Articles' },
-  { href: '#books', label: 'Books' },
+  { href: '#reader', label: 'Reader' },
+  { href: '#research', label: 'Research' },
+  { href: '#hardware', label: 'Hardware' },
+  { href: '#craft', label: 'Craft' },
+  { href: '#contact', label: 'Contact' },
 ];
 ---
 
 <header class="site-header">
-  <div class="container">
+  <div class="container header-grid">
     <a href="/" class="brand" aria-label="Citadel Resources home">
-      <span class="brand__mark" aria-hidden="true"></span>
-      <span class="brand__name">
-        Citadel Resources<br />
-        <small>sovereignty, shelter, sats</small>
+      <span class="brand__sigil" aria-hidden="true">C</span>
+      <span class="brand__text">
+        <strong>Citadel Resources</strong>
+        <small>sovereign builder guild</small>
       </span>
     </a>
     <nav aria-label="Primary">
       <ul class="nav-list">
-        {nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
+        {nav.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
       </ul>
     </nav>
   </div>
